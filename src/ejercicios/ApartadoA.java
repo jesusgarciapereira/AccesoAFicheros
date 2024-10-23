@@ -45,7 +45,7 @@ public class ApartadoA {
 					directorio.mkdir();
 					System.out.println("Directorio creado: " + directorio.getPath());
 
-					// Si ya existe, lo comunica y
+					// Si ya existe, lo comunica
 				} else {
 					System.out.println("El directorio ya existe: " + directorio.getPath());
 				}

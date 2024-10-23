@@ -6,6 +6,7 @@ public class VerInf {
 	
 	public static void main(String[] args) {
 		System.out.println("INFORMACIÓN SOBRE EL FICHERO:");
+		// Es este mismo archivo .java
 		  File f = new File("C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\ejemplosconfile\\VerInf.java");
 		   if(f.exists()){
 		        System.out.println("Nombre del fichero  : "+f.getName());
