@@ -35,9 +35,10 @@ public class LecturaFicheroSecuencial {
 					if (Character.isUpperCase(linea.charAt(i))) {
 
 						nuevaLinea = linea.substring(0, i);
-
+						
+						linea = linea.substring(i);
+						
 						System.out.println(nuevaLinea);
-						break;
 					}
 				}
 
