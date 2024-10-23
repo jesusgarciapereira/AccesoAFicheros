@@ -39,10 +39,10 @@ public class LecturaFicheroSecuencial {
 						linea = linea.substring(i);
 						
 						System.out.println(nuevaLinea);
+						break;
 					}
 				}
 
-				linea = br.readLine();
 			}
 
 			br.close();
