@@ -29,19 +29,21 @@ public class LecturaFicheroSecuencial {
 
 			linea = br.readLine();
 
-			while (linea != null) {
+			int contador = 1;
+			
+			while (linea != null && contador < linea.length()) {
 
-				for (int i = 1; i < linea.length(); i++) {
-					if (Character.isUpperCase(linea.charAt(i))) {
+				
+					if (Character.isUpperCase(linea.charAt(contador))) {
 
-						nuevaLinea = linea.substring(0, i);
+						nuevaLinea = linea.substring(0, contador);
 						
-						linea = linea.substring(i);
+						linea = linea.substring(contador);
 						
 						System.out.println(nuevaLinea);
-						break;
+						contador = 1;
 					}
-				}
+					contador++;
 
 			}
 
