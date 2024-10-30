@@ -17,38 +17,21 @@ public class LecturaFicheroAleatorio {
 		// ArrayList en el que guardaremos un listado de paplabras, para luego ordenarlo
 		List<String> listadoPalabras = new ArrayList<String>();
 
-		// Ruta del archivo .txt que leeremos
-		String textoPalabras = "C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficheroaleatorio\\palabras.txt";
-		// Ruta del archivo .txt que crearemos y escribiremos
-		String textoPalabrasOrdenadas = "C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficheroaleatorio\\palabrasOrdenadas.txt";
-
-		// Declaración de una variable de tipo File que usaremos para leer el txt antiguo
-		File antiguoFicheroTxt;
-		// Declaración de una variable de tipo File que usaremos para crear el txt (en
-		// este caso, palabras separadas)
-		File nuevoFicheroTxt;
-
-		// Declaracion del BufferedReader
-		BufferedReader br;
-
 		// Cada una de las lineas leidas del .txt
 		String linea = "";
 		// Palabra extraida a partir de la lectura de la linea anterior
 		String palabraExtraida = "";
 
-		// Buffer para leer el archivo línea por línea.
-		BufferedWriter wr = null;
-
 		try {
 
 			// Crea los nuevos ficheros con la direccion indicada
-			antiguoFicheroTxt = new File(textoPalabras);
-			nuevoFicheroTxt = new File(textoPalabrasOrdenadas);
+			File antiguoFicheroTxt = new File("C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficheroaleatorio\\palabras.txt");
+			File nuevoFicheroTxt = new File("C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficheroaleatorio\\palabrasOrdenadas.txt");
 
 			// BufferReader que leera la linea del archivo que ya esta creado
-			br = new BufferedReader(new FileReader(antiguoFicheroTxt));
+			BufferedReader br = new BufferedReader(new FileReader(antiguoFicheroTxt));
 			// BufferedWriter que escribira cada palabra separada
-			wr = new BufferedWriter(new FileWriter(nuevoFicheroTxt));
+			BufferedWriter wr = new BufferedWriter(new FileWriter(nuevoFicheroTxt));
 
 			// Lee la primera linea y la asigna en nuestro string
 			linea = br.readLine();

@@ -12,24 +12,12 @@ public class ApartadoB {
 
 	public static void main(String[] args) {
 
-		// Ruta absoluta del archivo de texto que contiene la estructura de carpetas,
-		// necesito leerlo
-		String estructuraCarpetas = "C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\bin\\ejercicios\\carpetas.txt";
-
-		// Ruta base donde estan las carpetas 
-		String rutaBase = "C:\\Users\\jgarcia\\";
-
-		// Extension que crearemos en cada carpeta
-		String paginaWeb = "\\paginaWeb.html";
-		
 		// Contenido del html
 		String html = "";
 
 		// Declaración de una variable de tipo File que usaremos para crear los ficheros (en este caso, paginas web)
 		File ficheroWeb;
 
-		// Buffer para leer el archivo línea por línea.
-		BufferedReader br;
 
 		// Variable para almacenar cada linea leida del archivo de texto
 		String linea = "";
@@ -40,7 +28,7 @@ public class ApartadoB {
 		
 		try {
 			// BufferedReader que leera cada linea carpetas.txt
-			br = new BufferedReader(new FileReader(estructuraCarpetas));
+			BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\bin\\ejercicios\\carpetas.txt"));
 
 			// Leemos la primera línea del archivo
 			linea = br.readLine();
@@ -48,7 +36,7 @@ public class ApartadoB {
 			// Mientras la linea no sea null
 			while (linea != null) {
 				// Crea cada fichero concatenando las rutas
-				ficheroWeb = new File(rutaBase + linea + paginaWeb);
+				ficheroWeb = new File("C:\\Users\\jgarcia\\" + linea + "\\paginaWeb.html");
 				
 				// A partir del objeto File creamos el fichero físicamente
 				if (ficheroWeb.createNewFile()) {
@@ -65,7 +53,7 @@ public class ApartadoB {
 							+ "</html>"; 
 					
 					// BufferedWriter que escribira cada paginaWeb.html
-					wr = new BufferedWriter(new FileWriter(ficheroWeb));
+					wr = new BufferedWriter(new FileWriter(ficheroWeb)); // Puedes poner la ruta, si lo prefieres
 					
 					// Escribe el html indicado
 					wr.write(html);

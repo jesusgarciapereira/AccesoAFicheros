@@ -10,17 +10,12 @@ public class ApartadoA {
 
 	public static void main(String[] args) {
 
-		// Ruta absoluta del archivo de texto que contiene la estructura de carpetas
-		String estructuraCarpetas = "C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\bin\\ejercicios\\carpetas.txt";
 
 		// Ruta base donde se crearán las carpetas (donde lo pide el ejercicio)
 		String rutaBase = "C:\\Users\\jgarcia\\";
 
 		// Declaración de una variable de tipo File que usaremos para crear los directorios
 		File directorio;
-
-		// Buffer para leer el archivo línea por línea.
-		BufferedReader br;
 		
 		// Variable para almacenar cada linea leida del archivo de texto
 		String linea = "";
@@ -29,7 +24,7 @@ public class ApartadoA {
 		try {
 
 			 // Inicializamos el BufferedReader para leer el archivo de texto que contiene las rutas
-			br = new BufferedReader(new FileReader(estructuraCarpetas));
+			BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\bin\\ejercicios\\carpetas.txt"));
 			 // Leemos la primera línea del archivo
 			linea = br.readLine();
 
@@ -37,7 +32,7 @@ public class ApartadoA {
 			while (linea != null) {
 
 				// Crea un objeto File que representa la ruta completa combinando la ruta base y la linea leida del archivo
-				directorio = new File(rutaBase + linea);
+				directorio = new File("C:\\Users\\jgarcia\\" + linea);
 
 				// Si el directorio no existe
 				if (!directorio.exists()) {

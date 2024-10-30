@@ -12,38 +12,22 @@ public class LecturaFicheroSecuencial {
 
 	public static void main(String[] args) {
 
-		// Ruta del archivo .txt que leeremos
-		String textoPalabras = "C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficherosecuencial\\palabras.txt";
-		// Ruta del archivo .txt que crearemos y escribiremos
-		String textoPalabrasSeparadas = "C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficherosecuencial\\palabrasSeparadas.txt";
-
-		// Declaración de una variable de tipo File que usaremos para leer el txt antiguo
-		File antiguoFicheroTxt;
-		// Declaración de una variable de tipo File que usaremos para crear el txt (en
-		// este caso, palabras separadas)
-		File nuevoFicheroTxt;
-
-		// Declaracion del BufferedReader
-		BufferedReader br;
 
 		// Cada una de las lineas leidas del .txt
 		String linea = "";
 		// Nueva linea creada a partir de la lectura de la linea anterior
 		String nuevaLinea = "";
 
-		// Buffer para leer el archivo línea por línea.
-		BufferedWriter wr = null;
-
 		try {
 
 			// Crea los nuevos ficheros con la direccion indicada
-			antiguoFicheroTxt = new File(textoPalabras);
-			nuevoFicheroTxt = new File(textoPalabrasSeparadas);
+			File antiguoFicheroTxt = new File("C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficherosecuencial\\palabras.txt");
+			File nuevoFicheroTxt = new File("C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficherosecuencial\\palabrasSeparadas.txt");
 
 			// BufferReader que leera la linea del archivo que ya esta creado
-			br = new BufferedReader(new FileReader(antiguoFicheroTxt));
+			BufferedReader br = new BufferedReader(new FileReader(antiguoFicheroTxt));
 			// BufferedWriter que escribira cada palabra separada
-			wr = new BufferedWriter(new FileWriter(nuevoFicheroTxt));
+			BufferedWriter wr = new BufferedWriter(new FileWriter(nuevoFicheroTxt));
 
 			// Lee la primera linea y la asigna en nuestro string
 			linea = br.readLine();
@@ -52,7 +36,7 @@ public class LecturaFicheroSecuencial {
 			// es mayuscula)
 			int contador = 1;
 
-			// Mientras la linea leiada no sea null y el contador sea menor a la longitud de
+			// Mientras la linea leida no sea null y el contador sea menor a la longitud de
 			// la linea
 			while (linea != null && contador < linea.length()) {
 
