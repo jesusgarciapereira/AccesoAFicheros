@@ -1,4 +1,4 @@
-package lecturaficherosecuencial;
+package lecturaficheroaleatorio;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,15 +7,20 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class LecturaFicheroSecuencial {
+public class LecturaFicheroAleatorio {
 
 	public static void main(String[] args) {
+		
+		// ArrayList en el que guardaremos un listado de paplabras, para luego ordenarlo
+		List<String> listadoPalabras = new ArrayList<String>();
 
 		// Ruta del archivo .txt que leeremos
-		String textoPalabras = "C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficherosecuencial\\palabras.txt";
+		String textoPalabras = "C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficheroaleatorio\\palabras.txt";
 		// Ruta del archivo .txt que crearemos y escribiremos
-		String textoPalabrasSeparadas = "C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficherosecuencial\\palabrasSeparadas.txt";
+		String textoPalabrasSeparadas = "C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficheroaleatorio\\palabrasSeparadas.txt";
 
 		// Declaración de una variable de tipo File que usaremos para leer el txt antiguo
 		File antiguoFicheroTxt;
@@ -28,8 +33,8 @@ public class LecturaFicheroSecuencial {
 
 		// Cada una de las lineas leidas del .txt
 		String linea = "";
-		// Nueva linea creada a partir de la lectura de la linea anterior
-		String nuevaLinea = "";
+		// Palabra extraida a partir de la lectura de la linea anterior
+		String palabraExtraida = "";
 
 		// Buffer para leer el archivo línea por línea.
 		BufferedWriter wr = null;
@@ -59,22 +64,15 @@ public class LecturaFicheroSecuencial {
 				// Si el caracter en el que se encuentra el contador es mayusculas
 				if (Character.isUpperCase(linea.charAt(contador))) {
 
-					// Asigna a nuevaLinea una palabra mediante el substring correspondiente
-					nuevaLinea = linea.substring(0, contador);
+					
+					// Asigna a palabraExtraida una palabra mediante el substring correspondiente
+					palabraExtraida = linea.substring(0, contador);
+					// Y la anniade a nuestra lista
+					listadoPalabras.add(palabraExtraida);
+					
 					// Y ahora, a la linea que hemos leido le quitamos dicha palabra mediante otro
 					// substring
 					linea = linea.substring(contador);
-
-					// Para observar por consola que se han separado las palabras correctamente
-					// System.out.println(nuevaLinea);
-
-					// Escribe la nueva linea en el archivo
-					wr.write(nuevaLinea);
-					// Salto de línea en el archivo, importante esto porque si no, te lo escribira
-					// todo seguido y los dos archivos seran exactamente iguales
-					wr.newLine();
-					// Vaciamos el buffer de entrada
-					wr.flush();
 
 					// El contador volvera a ser 1
 					contador = 1;
@@ -84,10 +82,29 @@ public class LecturaFicheroSecuencial {
 				contador++;
 
 			}
+			
+			// Ordenamos alfabeticamente las palabras de nuestra lista
+			listadoPalabras.sort(null);
+			
+			// Bucle for que recorrera cada elemento de listadoPalabras
+			for (int i = 0; i < listadoPalabras.size(); i++) {
+				// Escribe cada palabra en el archivo
+				wr.write(listadoPalabras.get(i));
+				// Salto de línea en el archivo, importante esto porque si no, te lo escribira
+				// todo seguido y los dos archivos seran exactamente iguales
+				wr.newLine();
+				// Vaciamos el buffer de entrada
+				wr.flush();
+			}
+		
+
 
 			// Cerramos el BufferedReader y el BufferedWriter
 			wr.close();
 			br.close();
+			
+			// por si quieres comprobar por consola que la lista es correcta y esta ordenada
+			// System.out.println(listadoPalabras);
 
 			// Manejo de excepción si el archivo no se encuentra en la ruta especificada
 		} catch (FileNotFoundException e) {
