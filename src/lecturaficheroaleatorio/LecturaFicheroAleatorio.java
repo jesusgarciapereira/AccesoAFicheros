@@ -20,7 +20,7 @@ public class LecturaFicheroAleatorio {
 		// Ruta del archivo .txt que leeremos
 		String textoPalabras = "C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficheroaleatorio\\palabras.txt";
 		// Ruta del archivo .txt que crearemos y escribiremos
-		String textoPalabrasSeparadas = "C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficheroaleatorio\\palabrasSeparadas.txt";
+		String textoPalabrasOrdenadas = "C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficheroaleatorio\\palabrasOrdenadas.txt";
 
 		// Declaración de una variable de tipo File que usaremos para leer el txt antiguo
 		File antiguoFicheroTxt;
@@ -43,7 +43,7 @@ public class LecturaFicheroAleatorio {
 
 			// Crea los nuevos ficheros con la direccion indicada
 			antiguoFicheroTxt = new File(textoPalabras);
-			nuevoFicheroTxt = new File(textoPalabrasSeparadas);
+			nuevoFicheroTxt = new File(textoPalabrasOrdenadas);
 
 			// BufferReader que leera la linea del archivo que ya esta creado
 			br = new BufferedReader(new FileReader(antiguoFicheroTxt));
