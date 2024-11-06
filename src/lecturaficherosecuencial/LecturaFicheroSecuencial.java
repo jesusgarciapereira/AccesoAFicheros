@@ -9,9 +9,27 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class LecturaFicheroSecuencial {
-
+	/*
+	 * Hemos creado un juego de ordenador, tipo ahorcado, en el que se debe adivinar
+	 * la palabra de 5 letras escondida.
+	 * 
+	 * No vamos a crear el juego. Vamos a tratar el fichero donde se guardan las
+	 * palabras.
+	 * 
+	 * El antiguo informático las almacenaba en un fichero de texto una tras otra,
+	 * sin separación, y el programa se encargaba de elegir una de ellas en un
+	 * método muy complejo que no viene al caso y que requería mucho tiempo.
+	 * 
+	 * Se te encarga el trabajo de leer ese fichero de texto y convertirlo en otro
+	 * donde, cada palabra, aparezca en una línea diferente.
+	 * 
+	 * Se adjunta el fichero de texto inicial.
+	 * 
+	 * Entrega:
+	 * 
+	 * Archivo .java El .txt generado
+	 */
 	public static void main(String[] args) {
-
 
 		// Cada una de las lineas leidas del .txt
 		String linea = "";
@@ -21,8 +39,10 @@ public class LecturaFicheroSecuencial {
 		try {
 
 			// Crea los nuevos ficheros con la direccion indicada
-			File antiguoFicheroTxt = new File("C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficherosecuencial\\palabras.txt");
-			File nuevoFicheroTxt = new File("C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficherosecuencial\\palabrasSeparadas.txt");
+			File antiguoFicheroTxt = new File(
+					"C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficherosecuencial\\palabras.txt");
+			File nuevoFicheroTxt = new File(
+					"C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficherosecuencial\\palabrasSeparadas.txt");
 
 			// BufferReader que leera la linea del archivo que ya esta creado
 			BufferedReader br = new BufferedReader(new FileReader(antiguoFicheroTxt));
@@ -50,7 +70,7 @@ public class LecturaFicheroSecuencial {
 					linea = linea.substring(contador);
 
 					// Para observar por consola que se han separado las palabras correctamente
-					// System.out.println(nuevaLinea);
+					System.out.println(nuevaLinea);
 
 					// Escribe la nueva linea en el archivo
 					wr.write(nuevaLinea);
@@ -62,11 +82,12 @@ public class LecturaFicheroSecuencial {
 
 					// El contador volvera a ser 1
 					contador = 1;
+
+					// En caso contrario
+				} else {
+					// Incrementa el contador
+					contador++;
 				}
-
-				// Incrementa el contador
-				contador++;
-
 			}
 
 			// Cerramos el BufferedReader y el BufferedWriter

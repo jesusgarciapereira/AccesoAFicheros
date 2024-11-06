@@ -11,9 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LecturaFicheroAleatorio {
-
+	/*
+	 * Como mejora del juego, se desea ordenar la lista de palabras en un fichero
+	 * nuevo llamado palabrasOrdenadas.txt Se deberá leer el fichero obtenido en el
+	 * ejercicio anterior y generar uno nuevo con las palabras ordenadas de forma
+	 * ascendente.
+	 * 
+	 * Entrega:
+	 * 
+	 * Archivo .java El .txt generado
+	 */
 	public static void main(String[] args) {
-		
+
 		// ArrayList en el que guardaremos un listado de paplabras, para luego ordenarlo
 		List<String> listadoPalabras = new ArrayList<String>();
 
@@ -25,8 +34,10 @@ public class LecturaFicheroAleatorio {
 		try {
 
 			// Crea los nuevos ficheros con la direccion indicada
-			File antiguoFicheroTxt = new File("C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficheroaleatorio\\palabras.txt");
-			File nuevoFicheroTxt = new File("C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficheroaleatorio\\palabrasOrdenadas.txt");
+			File antiguoFicheroTxt = new File(
+					"C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficheroaleatorio\\palabras.txt");
+			File nuevoFicheroTxt = new File(
+					"C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\lecturaficheroaleatorio\\palabrasOrdenadas.txt");
 
 			// BufferReader que leera la linea del archivo que ya esta creado
 			BufferedReader br = new BufferedReader(new FileReader(antiguoFicheroTxt));
@@ -47,12 +58,11 @@ public class LecturaFicheroAleatorio {
 				// Si el caracter en el que se encuentra el contador es mayusculas
 				if (Character.isUpperCase(linea.charAt(contador))) {
 
-					
 					// Asigna a palabraExtraida una palabra mediante el substring correspondiente
 					palabraExtraida = linea.substring(0, contador);
 					// Y la anniade a nuestra lista
 					listadoPalabras.add(palabraExtraida);
-					
+
 					// Y ahora, a la linea que hemos leido le quitamos dicha palabra mediante otro
 					// substring
 					linea = linea.substring(contador);
@@ -65,10 +75,10 @@ public class LecturaFicheroAleatorio {
 				contador++;
 
 			}
-			
+
 			// Ordenamos alfabeticamente las palabras de nuestra lista
 			listadoPalabras.sort(null);
-			
+
 			// Bucle for que recorrera cada elemento de listadoPalabras
 			for (int i = 0; i < listadoPalabras.size(); i++) {
 				// Escribe cada palabra en el archivo
@@ -79,15 +89,13 @@ public class LecturaFicheroAleatorio {
 				// Vaciamos el buffer de entrada
 				wr.flush();
 			}
-		
-
 
 			// Cerramos el BufferedReader y el BufferedWriter
 			wr.close();
 			br.close();
-			
+
 			// por si quieres comprobar por consola que la lista es correcta y esta ordenada
-			// System.out.println(listadoPalabras);
+			System.out.println(listadoPalabras);
 
 			// Manejo de excepción si el archivo no se encuentra en la ruta especificada
 		} catch (FileNotFoundException e) {
