@@ -11,7 +11,7 @@ public class LeerFichSecuencial {
 		File fichero = new File("C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\ejemplosformasdeaccesoaunfichero\\fichero1.txt");
 		
 		// Debe ser un array de caracteres, luego veras por que. Con una longitud igual al tamaño del archivo en bytes
-		char[] letras = new char[(int) fichero.length()];
+		char[] letras = new char[(int) fichero.length()]; // Al principio esta con caracteres '\u0000'
 		
 		// FileReader se usa para leer datos del archivo de texto. FileReader convierte los bytes del archivo en caracteres de manera adecuada
 		FileReader fr = new FileReader(fichero);
