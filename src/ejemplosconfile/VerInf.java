@@ -19,6 +19,9 @@ public class VerInf {
 				System.out.println("Es un fichero       : "+f.isFile());
 				System.out.println("Nombre del directorio padre: "+f.getParent());
 		  }
+		   else {
+			   System.out.println("No existe ningún archivo en la ruta " + f.getAbsolutePath());
+		   }
 		 }
 		}
 
