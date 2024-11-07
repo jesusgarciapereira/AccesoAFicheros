@@ -8,6 +8,10 @@ public class VerInf {
 		System.out.println("INFORMACIÓN SOBRE EL FICHERO:");
 		// Es este mismo archivo .java
 		  File f = new File("C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\ejemplosconfile\\VerInf.java");
+		  
+		  // En casa la ruta es:
+		  // C:\Users\Tragedia\git\AccesoAFicheros\src\ejemplosconfile\VerInf.java
+		  
 		   if(f.exists()){
 		        System.out.println("Nombre del fichero  : "+f.getName());
 		        System.out.println("Ruta                : "+f.getPath());
