@@ -44,27 +44,26 @@ public class EjercicioB {
 			// RandomAccessFile en modo escritura para escribir en el archivo de destino
 			RandomAccessFile escritorAleatorio = new RandomAccessFile(nuevoTxt, "rw");
 
-
 			// Bucle for que recorre la longitud de lectorAleatorio, en orden inverso
 			for (long i = lectorAleatorio.length() - 1; i >= 0; i--) {
-				// Posiciona el puntero de lectura en la posición indicada por el contador 
-				lectorAleatorio.seek(i); 
+				// Posiciona el puntero de lectura en la posición indicada por el contador
+				lectorAleatorio.seek(i);
 				// Lee el caracter y lo castea como char para asignarla a la variable
 				caracterLeido = (char) lectorAleatorio.readByte();
-				
+
 				// Si el caracter leido es una letra
 				if (Character.isLetter(caracterLeido)) {
 					// Escribe la letra leida en esa posición
-					escritorAleatorio.writeByte(caracterLeido); 
+					escritorAleatorio.writeByte(caracterLeido);
 					// Escribe tambien un salto de linea
 					escritorAleatorio.writeByte('\n');
 				}
 			}
 
 			// Cerramos los RandomAccessFile
-			lectorAleatorio.close(); 
-			escritorAleatorio.close(); 
-			
+			lectorAleatorio.close();
+			escritorAleatorio.close();
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
