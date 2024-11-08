@@ -19,8 +19,8 @@ public class EjercicioA {
 		// Archivo de destino donde se escribirá la letra de forma aleatoria
 		File nuevoTxt = new File(
 				"C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\ejerciciosaleatorios\\primero\\nuevoTxt.txt");
-		// Variable para almacenar la letra leída del archivo de origen
-		char letraLeida;
+		// Variable para almacenar el caracter leido del archivo de origen
+		char caracterLeido;
 
 		try {
 			// BufferedWriter para escribir la letra "a" en el archivo de origen
@@ -34,18 +34,18 @@ public class EjercicioA {
 			// RandomAccessFile en modo escritura para escribir en el archivo de destino
 			RandomAccessFile escritorAleatorio = new RandomAccessFile(nuevoTxt, "rw");
 			
-			// Posiciona el puntero al inicio del archivo de origen
+			// Posiciona el puntero de lectura en el inicio 
 			lectorAleatorio.seek(0);
-			// Lee la letra "a" como un byte
-			letraLeida = (char) lectorAleatorio.readByte();
+			// Lee el caracter y lo castea como char para asignarla a la variable
+			caracterLeido = (char) lectorAleatorio.read();
 
 			// Bucle for que ejecuta las instrucciones 5 veces
 			for (int i = 0; i < 5; i++) {
 
-				// Posiciona el puntero en una posición del archivo de destino
+				// Posiciona el puntero de escritura en la posición indicada por el contador
 				escritorAleatorio.seek(i);
-				// Escribe la letra "a" en esa posición
-				escritorAleatorio.writeByte(letraLeida);
+				// Escribe la letra leida en esa posición
+				escritorAleatorio.writeByte(caracterLeido);
 
 			}
 			// Cerramos los RandomAccessFile

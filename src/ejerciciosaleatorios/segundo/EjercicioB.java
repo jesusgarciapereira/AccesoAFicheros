@@ -22,8 +22,8 @@ public class EjercicioB {
 		// Archivo de destino donde se escribirá la letra de forma aleatoria
 		File nuevoTxt = new File(
 				"C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\ejerciciosaleatorios\\segundo\\nuevoTxt.txt");
-		// Variable para almacenar la letra leída del archivo de origen
-		char letraLeida;
+		// Variable para almacenar el caracter leido del archivo de origen
+		char caracterLeido;
 		// Constante que almacena el caracter 'a'
 		final char CARACTER_A = 'a';
 
@@ -44,22 +44,27 @@ public class EjercicioB {
 			// RandomAccessFile en modo escritura para escribir en el archivo de destino
 			RandomAccessFile escritorAleatorio = new RandomAccessFile(nuevoTxt, "rw");
 
-			// Calcular la longitud del archivo de origen para usar seek()
-			long longitudArchivo = lectorAleatorio.length();
 
-			// Leer las letras en orden inverso y escribirlas en el archivo de destino
-			for (long i = longitudArchivo - 1; i >= 0; i--) {
-				lectorAleatorio.seek(i); // Mover el puntero a la posición deseada
-				letraLeida = (char) lectorAleatorio.readByte();
-				if (Character.isLetter(letraLeida)) {
-					// Leer el byte en la posición
-					escritorAleatorio.writeByte(letraLeida + '\n'); // Escribir en el archivo de destino
+			// Bucle for que recorre la longitud de lectorAleatorio, en orden inverso
+			for (long i = lectorAleatorio.length() - 1; i >= 0; i--) {
+				// Posiciona el puntero de lectura en la posición indicada por el contador 
+				lectorAleatorio.seek(i); 
+				// Lee el caracter y lo castea como char para asignarla a la variable
+				caracterLeido = (char) lectorAleatorio.readByte();
+				
+				// Si el caracter leido es una letra
+				if (Character.isLetter(caracterLeido)) {
+					// Escribe la letra leida en esa posición
+					escritorAleatorio.writeByte(caracterLeido); 
+					// Escribe tambien un salto de linea
+					escritorAleatorio.writeByte('\n');
 				}
 			}
 
-			lectorAleatorio.close(); // Cerrar el lector
-			escritorAleatorio.close(); // Cerrar el escritor
-
+			// Cerramos los RandomAccessFile
+			lectorAleatorio.close(); 
+			escritorAleatorio.close(); 
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
