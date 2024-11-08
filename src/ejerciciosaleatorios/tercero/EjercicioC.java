@@ -50,13 +50,14 @@ public class EjercicioC {
 				if (Character.isLetter(caracterLeido)) {
 					// Escribe la letra leida en esa posición
 					escritorAleatorio.writeByte(caracterLeido);
-					// Escribe tambien un salto de linea
-					escritorAleatorio.writeByte('\n');
+
 				}
 
-				if (Character.isDigit(caracterLeido)) {
+				else if (Character.isDigit(caracterLeido)) {
 					// Escribe la letra leida en esa posición
 					escritorAleatorio.writeByte(caracterLeido);
+					// Escribe tambien un salto de linea
+					escritorAleatorio.writeByte('\n');
 				}
 			}
 

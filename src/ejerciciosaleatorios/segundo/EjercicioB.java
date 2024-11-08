@@ -58,6 +58,7 @@ public class EjercicioB {
 					// Escribe tambien un salto de linea
 					escritorAleatorio.writeByte('\n');
 				}
+				
 			}
 
 			// Cerramos los RandomAccessFile
