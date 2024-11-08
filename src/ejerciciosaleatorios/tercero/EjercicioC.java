@@ -12,10 +12,10 @@ public class EjercicioC {
 		// Archivo de origen donde se escribirá inicialmente las letras [a-e] en cada
 		// linea
 		File antiguoTxt = new File(
-				"C:\\Users\\Tragedia\\git\\AccesoAFicheros\\src\\ejerciciosaleatorios\\tercero\\antiguoTxt.txt");
+				"C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\ejerciciosaleatorios\\tercero\\antiguoTxt.txt");
 		// Archivo de destino donde se escribirá la letra de forma aleatoria
 		File nuevoTxt = new File(
-				"C:\\Users\\Tragedia\\git\\AccesoAFicheros\\src\\ejerciciosaleatorios\\tercero\\nuevoTxt.txt");
+				"C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\ejerciciosaleatorios\\tercero\\nuevoTxt.txt");
 		// Variable para almacenar el caracter leido del archivo de origen
 		char caracterLeido;
 		// Constante que almacena el caracter 'a'
