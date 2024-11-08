@@ -48,16 +48,25 @@ public class EjercicioC {
 
 				// Si el caracter leido es una letra
 				if (Character.isLetter(caracterLeido)) {
-					// Escribe la letra leida en esa posición
-					escritorAleatorio.writeByte(caracterLeido);
-
-				}
-
-				else if (Character.isDigit(caracterLeido)) {
+					// Posiciona el puntero de lectura en la posición indicada por el contador
+					lectorAleatorio.seek(i + 1);
+					// Lee el caracter y lo castea como char para asignarla a la variable
+					caracterLeido = (char) lectorAleatorio.readByte();
 					// Escribe la letra leida en esa posición
 					escritorAleatorio.writeByte(caracterLeido);
 					// Escribe tambien un salto de linea
 					escritorAleatorio.writeByte('\n');
+
+				}
+
+				else if (Character.isDigit(caracterLeido)) {
+					// Posiciona el puntero de lectura en la posición indicada por el contador
+					lectorAleatorio.seek(i - 1);
+					// Lee el caracter y lo castea como char para asignarla a la variable
+					caracterLeido = (char) lectorAleatorio.readByte();
+					// Escribe la letra leida en esa posición
+					escritorAleatorio.writeByte(caracterLeido);
+
 				}
 			}
 
