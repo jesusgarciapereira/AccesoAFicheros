@@ -20,7 +20,7 @@ public class EjercicioA {
 		File nuevoTxt = new File(
 				"C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\ejerciciosaleatorios\\primero\\nuevoTxt.txt");
 		// Variable para almacenar la letra leída del archivo de origen
-		byte letraLeida;
+		char letraLeida;
 
 		try {
 			// BufferedWriter para escribir la letra "a" en el archivo de origen
@@ -37,7 +37,7 @@ public class EjercicioA {
 			// Posiciona el puntero al inicio del archivo de origen
 			lectorAleatorio.seek(0);
 			// Lee la letra "a" como un byte
-			letraLeida = lectorAleatorio.readByte();
+			letraLeida = (char) lectorAleatorio.readByte();
 
 			// Bucle for que ejecuta las instrucciones 5 veces
 			for (int i = 0; i < 5; i++) {
