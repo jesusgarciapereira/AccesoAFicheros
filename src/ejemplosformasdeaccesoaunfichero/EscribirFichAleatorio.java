@@ -9,7 +9,7 @@ public class EscribirFichAleatorio {
 		
 		File fichero = new File("C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\ejemplosformasdeaccesoaunfichero\\AleatorioEmple.dat");
 		
-		// declara el fichero de acceso aleatorio
+		// declara el fichero de acceso aleatorio (tipo lectura-escritura: "rw")
 		RandomAccessFile file = new RandomAccessFile(fichero, "rw");
 		
 		// arrays con los datos
