@@ -12,10 +12,10 @@ public class EjercicioC {
 		// Archivo de origen donde se escribirá inicialmente las letras [a-e] en cada
 		// linea
 		File antiguoTxt = new File(
-				"C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\ejerciciosaleatorios\\tercero\\antiguoTxt.txt");
+				"C:\\Users\\Tragedia\\git\\AccesoAFicheros\\src\\ejerciciosaleatorios\\tercero\\antiguoTxt.txt");
 		// Archivo de destino donde se escribirá la letra de forma aleatoria
 		File nuevoTxt = new File(
-				"C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\ejerciciosaleatorios\\tercero\\nuevoTxt.txt");
+				"C:\\Users\\Tragedia\\git\\AccesoAFicheros\\src\\ejerciciosaleatorios\\tercero\\nuevoTxt.txt");
 		// Variable para almacenar el caracter leido del archivo de origen
 		char caracterLeido;
 		// Constante que almacena el caracter 'a'
@@ -45,29 +45,31 @@ public class EjercicioC {
 				lectorAleatorio.seek(i);
 				// Lee el caracter y lo castea como char para asignarla a la variable
 				caracterLeido = (char) lectorAleatorio.readByte();
-
-				// Si el caracter leido es una letra
-				if (Character.isLetter(caracterLeido)) {
-					// Posiciona el puntero de lectura en la posición indicada por el contador
-					lectorAleatorio.seek(i + 1);
-					// Lee el caracter y lo castea como char para asignarla a la variable
+				
+				// Si el caracter leido es un digito
+				 if (Character.isDigit(caracterLeido)) {
+					// Posiciona el puntero de lectura en la posición anterior 
+					lectorAleatorio.seek(i - 1);
+					// Lee el caracter y lo castea como char para asignarla a la variable (su letra correspondiente)
 					caracterLeido = (char) lectorAleatorio.readByte();
-					// Escribe la letra leida en esa posición
+					// Escribe el caracter leido en esa posición
+					escritorAleatorio.writeByte(caracterLeido);
+
+				}
+				// Si el caracter leido es una letra
+				 else if (Character.isLetter(caracterLeido)) {
+					// Posiciona el puntero de lectura en la posición posterior 
+					lectorAleatorio.seek(i + 1);
+					// Lee el caracter y lo castea como char para asignarla a la variable (su numero correspondiente)
+					caracterLeido = (char) lectorAleatorio.readByte();
+					// Escribe el caracter leido en esa posición
 					escritorAleatorio.writeByte(caracterLeido);
 					// Escribe tambien un salto de linea
 					escritorAleatorio.writeByte('\n');
 
 				}
 
-				else if (Character.isDigit(caracterLeido)) {
-					// Posiciona el puntero de lectura en la posición indicada por el contador
-					lectorAleatorio.seek(i - 1);
-					// Lee el caracter y lo castea como char para asignarla a la variable
-					caracterLeido = (char) lectorAleatorio.readByte();
-					// Escribe la letra leida en esa posición
-					escritorAleatorio.writeByte(caracterLeido);
-
-				}
+				
 			}
 
 			// Cerramos los RandomAccessFile
