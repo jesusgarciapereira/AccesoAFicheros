@@ -1,4 +1,4 @@
-package ejerciciosaleatorios;
+package ejerciciosaleatorios.primero;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -16,10 +16,10 @@ public class EjercicioA {
 	public static void main(String[] args) {
 		// Archivo de origen donde se escribirá inicialmente la letra "a"
 		File antiguoTxt = new File(
-				"C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\ejerciciosaleatorios\\antiguoTxt.txt");
+				"C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\ejerciciosaleatorios\\primero\\antiguoTxt.txt");
 		// Archivo de destino donde se escribirá la letra de forma aleatoria
 		File nuevoTxt = new File(
-				"C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\ejerciciosaleatorios\\nuevoTxt.txt");
+				"C:\\Users\\jgarcia\\eclipse-workspace\\AccesoAFicheros\\src\\ejerciciosaleatorios\\primero\\nuevoTxt.txt");
 		// Variable para almacenar la letra leída del archivo de origen
 		byte letra;
 
