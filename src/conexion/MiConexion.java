@@ -19,8 +19,7 @@ public class MiConexion {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection conn = DriverManager.getConnection(url, usuario, contrasennia);
 			
-			
-			System.out.println("Conexión exitosa");
+			System.out.println("Conexión exitosa: " + conn);
 			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
